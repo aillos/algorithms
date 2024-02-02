@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "route": "/binary-search",
+      "statusCode": 200
+    },
+    {
+      "route": "/*",
+      "statusCode": 200
+    }
+  ]
+}
