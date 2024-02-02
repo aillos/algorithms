@@ -2,10 +2,12 @@
   "routes": [
     {
       "route": "/binary-search",
+      "serve": "/binary-search.html",
       "statusCode": 200
     },
     {
       "route": "/*",
+      "serve": "/index.html",
       "statusCode": 200
     }
   ]
