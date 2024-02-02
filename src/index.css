@@ -45,6 +45,8 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  width:200px;
+  margin:5px;
 }
 button:hover {
   border-color: #646cff;
@@ -89,13 +91,75 @@ button:focus-visible {
 }
 
 .box.mid{
-  background-color:royalblue !important;
+  background-color:mediumseagreen !important;
 }
 
 .box.start{
-  background-color:mediumseagreen;
+  background-color:royalblue;
 }
 
 .box.end{
-  background-color:mediumseagreen;
+  background-color:royalblue;
+}
+
+.input{
+  font-weight: bold;
+}
+
+input{
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #2f2f2f;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  width:155px;
+  margin:5px;
+}
+
+input:focus,
+input:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+#legend{
+  display: flex;
+  justify-content: center;
+}
+.legendBoxes{
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size:20px;
+}
+
+.legendBox{
+  height:25px !important;
+  width: 25px !important;
+  margin-left: 10px;
+  border-radius: 50%;
+}
+
+.inputButton{
+  border-radius: 50%;
+  width:50px;
+  height:50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputButtonDiv{
+  display: flex;
+  justify-content: center;
+  margin-bottom:10px;
+}
+
+.header{
+  margin-top:-30px;
+  margin-bottom:70px;
 }

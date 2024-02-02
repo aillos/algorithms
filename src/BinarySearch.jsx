@@ -1,10 +1,11 @@
 export const BinarySearch = async (arr, target, callback) => {
     let start = 0;
     let end = arr.length - 1;
+    let count = 1;
     while (start <= end) {
         await new Promise(resolve => setTimeout(resolve, 1000));
         let mid = Math.floor((start + end) / 2);
-        callback(start, mid, end);
+        callback(start, mid, end, count++);
         if (arr[mid] === target) {
             return mid;
         } else if (arr[mid] < target) {
