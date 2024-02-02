@@ -102,8 +102,14 @@ button:focus-visible {
   background-color:royalblue;
 }
 
+.box.within{
+  background-color:royalblue;
+}
+
 .input{
   font-weight: bold;
+  display: flex;
+    justify-content: center;
 }
 
 input{
@@ -156,10 +162,83 @@ input:focus-visible {
 .inputButtonDiv{
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom:10px;
+  background-color: #383838;
+  height: 60px;
+  border-radius: 30px;
+  width: 220px;
+}
+
+.targetButtonDiv{
+  width:200px;
+  margin-bottom:5px;
 }
 
 .header{
   margin-top:-30px;
-  margin-bottom:70px;
+  margin-bottom:30px;
+}
+
+.header > h2{
+  font-weight: normal;
+}
+
+#binarySubmit{
+  border-radius:50%;
+  height:50px;
+  width:50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#binaryNumber{
+  width:100px;
+}
+
+.targetButton{
+  width: 90px;
+  border-radius:30px;
+}
+
+.binarySubmit{
+  display: flex;
+  justify-content: center;
+}
+
+.inputBox{
+  border-radius:30px;
+  text-align: center;
+  height:30px;
+}
+
+#binaryArray{
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  width:180px;
+}
+
+.label{
+  width: 200px;
+  text-align: left;
+  margin: auto auto 10px;
+  font-size: 18px;
+}
+
+.labelTarget{
+  font-size: 18px;
+  width: 180px;
+  text-align: left;
+  margin: auto auto 10px;
+}
+
+#binaryBox{
+  margin:10px;
+}
+
+.customBinaryArray{
+  width:50px;
+  text-align: center;
 }
