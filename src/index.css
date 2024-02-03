@@ -27,6 +27,8 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #242424;
+  color: #f9f9f9;
 }
 
 h1 {
@@ -180,6 +182,7 @@ input:focus-visible {
 
 .header > h2{
   font-weight: normal;
+  margin-bottom:15px;
 }
 
 .code{
@@ -192,6 +195,7 @@ input:focus-visible {
   background-color: #383838;
   width: 250px;
   height:40px;
+
 }
 
 .header > h3 {
@@ -208,7 +212,8 @@ input:focus-visible {
 }
 
 #binaryNumber{
-  width:100px;
+  width:135px;
+  height:50px;
 }
 
 .targetButton{
@@ -253,6 +258,21 @@ input:focus-visible {
 }
 
 .customBinaryArray{
-  width:50px;
+  width:80px;
+  height:50px;
   text-align: center;
+
+}
+.code-modal{
+  background-color: #242424;
+  border-color: #1a1a1a;
+}
+
+.language-javascript, .language-java, .language-python, .language-csharp, .language-cpp{
+  background-color: #242424 !important;
+  border: 0 !important;
+}
+
+.code > img:hover{
+  cursor: pointer;
 }

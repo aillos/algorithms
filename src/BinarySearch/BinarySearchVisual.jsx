@@ -9,6 +9,10 @@ import javascript from 'programming-languages-logos/src/javascript/javascript.sv
 import csharp from 'programming-languages-logos/src/csharp/csharp.svg'
 import cpp from 'programming-languages-logos/src/cpp/cpp.svg'
 import JavascriptCodeModal from "./JavascriptCodeModal.jsx";
+import JavaCodeModal from "./JavaCodeModal.jsx";
+import PythonCodeModal from "./PythonCodeModal.jsx";
+import CSharpCodeModal from "./CSharpCodeModal.jsx";
+import CppCodeModal from "./CppCodeModal.jsx";
 
 function BinarySearchVisual() {
     const [inputArray, setInputArray] = useState('');
@@ -21,6 +25,18 @@ function BinarySearchVisual() {
     const [resultsText, setResultsText] = useState('');
     const [resultNumber, setResultNumber] = useState(null);
     const [showJavascriptCode, setShowJavascriptCode] = useState(false);
+    const [showJavaCode, setShowJavaCode] = useState(false);
+    const [showPythonCode, setShowPythonCode] = useState(false);
+    const [showCsharpCode, setShowCsharpCode] = useState(false);
+    const [showCppCode, setShowCppCode] = useState(false);
+
+    const closeCppCode = () => {
+        setShowCppCode(false);
+    }
+
+    const openCppCode = () => {
+        setShowCppCode(true);
+    }
 
     const closeJavascriptCode = () => {
         setShowJavascriptCode(false);
@@ -29,6 +45,31 @@ function BinarySearchVisual() {
     const openJavascriptCode = () => {
         setShowJavascriptCode(true);
     }
+
+    const closeJavaCode = () => {
+        setShowJavaCode(false);
+    }
+
+    const openJavaCode = () => {
+        setShowJavaCode(true);
+    }
+
+    const closePythonCode = () => {
+        setShowPythonCode(false);
+    }
+
+    const openPythonCode = () => {
+        setShowPythonCode(true);
+    }
+
+    const closeCsharpCode = () => {
+        setShowCsharpCode(false);
+    }
+
+    const openCsharpCode = () => {
+        setShowCsharpCode(true);
+    }
+
 
     const handleInputArrayChange = (event) => {
         setInputArray(event.target.value);
@@ -72,12 +113,16 @@ function BinarySearchVisual() {
                 <h1>Binary Search</h1>
                 <h2>Time complexity: O(logN)</h2>
                 <div className={"code"}>
-                    <img src={java} alt={"java"} height={"30px"}/>
+                    <img src={java} alt={"java"} height={"30px"} onClick={openJavaCode} />
+                    <JavaCodeModal show={showJavaCode} onHide={closeJavaCode}/>
                     <img src={javascript} alt={"javascript"} height={"30px"} onClick={openJavascriptCode}/>
                     <JavascriptCodeModal show={showJavascriptCode} onHide={closeJavascriptCode}/>
-                    <img src={python} alt={"python"} height={"30px"}/>
-                    <img src={csharp} alt={"csharp"} height={"30px"}/>
-                    <img src={cpp} alt={"cplusplus"} height={"30px"}/>
+                    <img src={python} alt={"python"} height={"30px"} onClick={openPythonCode}/>
+                    <PythonCodeModal show={showPythonCode} onHide={closePythonCode}/>
+                    <img src={csharp} alt={"csharp"} height={"30px"} onClick={openCsharpCode}/>
+                    <CSharpCodeModal show={showCsharpCode} onHide={closeCsharpCode}/>
+                    <img src={cpp} alt={"cplusplus"} height={"30px"} onClick={openCppCode}/>
+                    <CppCodeModal show={showCppCode} onHide={closeCppCode}/>
 
                 </div>
             </div>

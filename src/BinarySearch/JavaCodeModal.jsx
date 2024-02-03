@@ -1,10 +1,10 @@
 import Modal from 'react-bootstrap/Modal';
 import 'prismjs';
-import 'prism-themes/themes/prism-xonokai.css';
 import {useEffect} from "react";
 import Prism from 'prismjs';
+import 'prismjs/components/prism-java';
 
-function JavascriptCodeModal( {show , onHide} ) {
+function JavaCodeModal( {show , onHide} ) {
     useEffect(() => {
         Prism.highlightAll();
     }, [show]);
@@ -19,22 +19,23 @@ function JavascriptCodeModal( {show , onHide} ) {
 
             >
                 <Modal.Header closeButton className="code-modal" closeVariant={"white"}>
-                    <Modal.Title>Example code for Javascript</Modal.Title>
+                    <Modal.Title>Example code for Java</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="code-modal">
          <pre>
-            <code className="language-javascript">
+            <code className="language-java">
     {`
-const BinarySearch = (arr, x) => {
-        let start = 0;
-        let end = arr.length - 1;
+private int binarySearch (int arr[], int x) {
+        int start = 0;
+        int end = arr.length - 1;
         while (start <= end) {
-        let mid = Math.floor((start + end) / 2);
-            if (arr[mid] === x) {
+        int mid = start + (end - start) / 2;
+            if (arr[mid] == x) {
                 return mid;
-            } else if (arr[mid] < x) {
+            }
+            if (arr[mid] < x) {
                 start = mid + 1;
-            } else {
+            } else { 
                 end = mid - 1;
             }
         }
@@ -49,4 +50,4 @@ const BinarySearch = (arr, x) => {
     );
 }
 
-export default JavascriptCodeModal;
+export default JavaCodeModal

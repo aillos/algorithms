@@ -1,10 +1,11 @@
 import Modal from 'react-bootstrap/Modal';
 import 'prismjs';
-import 'prism-themes/themes/prism-xonokai.css';
 import {useEffect} from "react";
 import Prism from 'prismjs';
+import 'prism-themes/themes/prism-one-dark.css';
+import 'prismjs/components/prism-python';
 
-function JavascriptCodeModal( {show , onHide} ) {
+function PythonCodeModal( {show , onHide} ) {
     useEffect(() => {
         Prism.highlightAll();
     }, [show]);
@@ -19,27 +20,24 @@ function JavascriptCodeModal( {show , onHide} ) {
 
             >
                 <Modal.Header closeButton className="code-modal" closeVariant={"white"}>
-                    <Modal.Title>Example code for Javascript</Modal.Title>
+                    <Modal.Title>Example code for Python</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="code-modal">
          <pre>
-            <code className="language-javascript">
+            <code className="language-python">
     {`
-const BinarySearch = (arr, x) => {
-        let start = 0;
-        let end = arr.length - 1;
-        while (start <= end) {
-        let mid = Math.floor((start + end) / 2);
-            if (arr[mid] === x) {
-                return mid;
-            } else if (arr[mid] < x) {
-                start = mid + 1;
-            } else {
-                end = mid - 1;
-            }
-        }
-    return -1;
-}
+def binary_search(arr, x):
+    start = 0
+    end = len(arr) - 1
+    while start <= end:
+        mid = (start + end) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] < x:
+            start = mid + 1
+        else:
+            end = mid - 1
+    return -1
         `}
                 </code>
         </pre>
@@ -49,4 +47,4 @@ const BinarySearch = (arr, x) => {
     );
 }
 
-export default JavascriptCodeModal;
+export default PythonCodeModal
