@@ -45,6 +45,8 @@ int BinarySearch(int[] arr, int x) {
                 </code>
         </pre>
                 </Modal.Body>
+                <Modal.Footer className="code-modal">
+                </Modal.Footer>
             </Modal>
         </>
     );

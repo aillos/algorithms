@@ -42,6 +42,8 @@ def binary_search(arr, x):
                 </code>
         </pre>
                 </Modal.Body>
+                <Modal.Footer className="code-modal">
+                </Modal.Footer>
             </Modal>
         </>
     );
