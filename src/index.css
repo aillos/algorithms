@@ -236,7 +236,8 @@ input:focus-visible {
   margin: auto;
   display: flex;
   justify-content: center;
-  width:180px;
+  width:220px;
+  height: 50px;
 }
 
 .label{
@@ -258,7 +259,7 @@ input:focus-visible {
 }
 
 .customBinaryArray{
-  width:80px;
+  width:90px;
   height:50px;
   text-align: center;
 
