@@ -1,6 +1,6 @@
 import './App.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import BinarySearchVisual from "./BinarySearchVisual.jsx";
+import BinarySearchVisual from "./BinarySearch/BinarySearchVisual.jsx";
 
 function App() {
     const router = createBrowserRouter([

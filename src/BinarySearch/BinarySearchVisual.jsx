@@ -1,8 +1,14 @@
-import './App.css'
+import '../App.css'
 import {useState} from "react";
 import {BinarySearch} from "./BinarySearch.jsx";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
+import java from 'programming-languages-logos/src/java/java.svg'
+import python from 'programming-languages-logos/src/python/python.svg'
+import javascript from 'programming-languages-logos/src/javascript/javascript.svg'
+import csharp from 'programming-languages-logos/src/csharp/csharp.svg'
+import cpp from 'programming-languages-logos/src/cpp/cpp.svg'
+import JavascriptCodeModal from "./JavascriptCodeModal.jsx";
 
 function BinarySearchVisual() {
     const [inputArray, setInputArray] = useState('');
@@ -14,6 +20,15 @@ function BinarySearchVisual() {
     const [currentCount, setCurrentCount] = useState(null);
     const [resultsText, setResultsText] = useState('');
     const [resultNumber, setResultNumber] = useState(null);
+    const [showJavascriptCode, setShowJavascriptCode] = useState(false);
+
+    const closeJavascriptCode = () => {
+        setShowJavascriptCode(false);
+    }
+
+    const openJavascriptCode = () => {
+        setShowJavascriptCode(true);
+    }
 
     const handleInputArrayChange = (event) => {
         setInputArray(event.target.value);
@@ -56,6 +71,15 @@ function BinarySearchVisual() {
             <div className={"header"}>
                 <h1>Binary Search</h1>
                 <h2>Time complexity: O(logN)</h2>
+                <div className={"code"}>
+                    <img src={java} alt={"java"} height={"30px"}/>
+                    <img src={javascript} alt={"javascript"} height={"30px"} onClick={openJavascriptCode}/>
+                    <JavascriptCodeModal show={showJavascriptCode} onHide={closeJavascriptCode}/>
+                    <img src={python} alt={"python"} height={"30px"}/>
+                    <img src={csharp} alt={"csharp"} height={"30px"}/>
+                    <img src={cpp} alt={"cplusplus"} height={"30px"}/>
+
+                </div>
             </div>
 
             <div className={"input"}>
