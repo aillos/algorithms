@@ -1,12 +1,17 @@
 import './App.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import BinarySearchVisual from "./BinarySearch/BinarySearchVisual.jsx";
+import BinarySearch from "./BinarySearch/BinarySearch.jsx";
+import Home from "./Home.jsx";
 
 function App() {
     const router = createBrowserRouter([
         {
             path: "/binary-search",
-            element: <BinarySearchVisual />,
+            element: <BinarySearch />,
+        },
+        {
+            path: "/",
+            element: <Home />,
         },
     ]);
 

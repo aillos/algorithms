@@ -281,3 +281,96 @@ input:focus-visible {
 .modal {
   --bs-modal-border-radius: 30px;
 }
+
+.algorithm-list{
+
+}
+
+.algorithm{
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:250px;
+  height:40px;
+  background-color: #383838;
+  border-radius:25px;
+  border: 1px solid transparent;
+}
+
+.algorithm:hover{
+  cursor: pointer;
+  border-color: #646cff;
+}
+
+#search-bar{
+  margin-left:auto;
+  text-align: center;
+  height:40px;
+  width:120px;
+  border-radius: 30px;
+}
+
+.filter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px auto;
+  width: 250px;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+#dropdown-filters{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:40px;
+  height:40px;
+  font-size:20px;
+  background-color: #383838;
+  border-radius: 30px;
+  border-color: #383838;
+}
+
+#dropdown-filters:hover{
+  cursor: pointer;
+  border-color: #646cff;
+}
+
+#menu-filters{
+  background-color: #383838;
+  width:230px
+}
+
+.filter-item{
+  color: #f9f9f9;
+  border: 1px solid transparent;
+}
+
+.filter-item:hover{
+  border: 1px solid #646cff;
+  color: #f9f9f9;
+  background-color: #383838;
+  border-radius: 25px;
+}
+
+#filter-item {
+  background-color: #242424;
+  border: 1px solid transparent;
+  width:10px !important;
+  height: 20px;
+  color: #f9f9f9;
+  border-radius:50%;
+}
+
+#filter-item .form-check .form-check-input {
+    width: 20px !important;
+    height: 20px;
+    border-radius: 50%;
+  border: 1px solid #646cff;
+}
+
