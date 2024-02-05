@@ -1,4 +1,4 @@
-import {Dropdown, Form, FormGroup, DropdownToggle, DropdownMenu} from "react-bootstrap";
+import {Dropdown, Form, FormGroup} from "react-bootstrap";
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -45,6 +45,20 @@ function Home() {
                 </Dropdown.Toggle>
                     <Dropdown.Menu id={"menu-filters"}>
                     <FormGroup>
+                        <Dropdown.Item as="checkbox" className={"filter-item"} key={"all"} onClick={(e) => e.stopPropagation()}>
+                            <Form.Check
+                                id={`filter-item`}
+                                checked={filters.length === possibleFilters.length}
+                                onChange={(event) => {
+                                    if (filters.length === possibleFilters.length) {
+                                        setFilters([]);
+                                    } else {
+                                        setFilters(possibleFilters);
+                                    }
+                                }}
+                                label={"select all"}
+                            />
+                        </Dropdown.Item>
                     {possibleFilters.map(filter => (
                         <Dropdown.Item as="checkbox" className={"filter-item"} key={filter} onClick={(e) => e.stopPropagation()}>
                             <Form.Check
