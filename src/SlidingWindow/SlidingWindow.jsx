@@ -1,6 +1,5 @@
 import '../App.css'
 import {useState} from "react";
-import {BinarySearchFunction} from "./BinarySearchFunction.jsx";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faHome, faSearch} from "@fortawesome/free-solid-svg-icons";
 import java from 'programming-languages-logos/src/java/java.svg'
@@ -8,20 +7,23 @@ import python from 'programming-languages-logos/src/python/python.svg'
 import javascript from 'programming-languages-logos/src/javascript/javascript.svg'
 import csharp from 'programming-languages-logos/src/csharp/csharp.svg'
 import cpp from 'programming-languages-logos/src/cpp/cpp.svg'
+import {SlidingWindowFunction} from "./SlidingWindowFunction.jsx";
 import JavascriptCodeModal from "./JavascriptCodeModal.jsx";
 import JavaCodeModal from "./JavaCodeModal.jsx";
 import PythonCodeModal from "./PythonCodeModal.jsx";
 import CSharpCodeModal from "./CSharpCodeModal.jsx";
 import CppCodeModal from "./CppCodeModal.jsx";
 
-function BinarySearch() {
+function SlidingWindow() {
     const [inputArray, setInputArray] = useState('');
     const [inputTarget, setInputTarget] = useState('');
     const [boxesArray, setBoxesArray] = useState([]);
-    const [currentMid, setCurrentMid] = useState(null);
+    const [maxValue, setMaxValue] = useState(null);
+    const [maxStart, setMaxStart] = useState(null);
+    const [maxEnd, setMaxEnd] = useState(null);
     const [currentStart, setCurrentStart] = useState(null);
     const [currentEnd, setCurrentEnd] = useState(null);
-    const [currentCount, setCurrentCount] = useState(null);
+    const [currentSum, setCurrentSum] = useState(null);
     const [resultsText, setResultsText] = useState('');
     const [resultNumber, setResultNumber] = useState(null);
     const [showJavascriptCode, setShowJavascriptCode] = useState(false);
@@ -93,18 +95,16 @@ function BinarySearch() {
         } else {
             const boxes = array.map((value, id) => ({id, value}));
             setBoxesArray(boxes);
-            BinarySearchFunction(array, target, (start, mid, end, count) => {
+            SlidingWindowFunction(array, target, (max, sum, maxStart, maxEnd, start, end) => {
                 setCurrentStart(start);
-                setCurrentMid(mid);
+                setCurrentSum(sum);
                 setCurrentEnd(end);
-                setCurrentCount(count);
+                setMaxValue(max);
+                setMaxStart(maxStart);
+                setMaxEnd(maxEnd);
             }).then((result) => {
-                if (result === -1) {
-                    setResultsText('Number not found');
-                } else {
-                    setResultsText('Number found at index ');
-                    setResultNumber(result);
-                }
+                setResultsText('Max value found: ' );
+                setResultNumber(result);
             });
         }
     };
@@ -114,11 +114,10 @@ function BinarySearch() {
     return (
         <>
             <div className={"header"}>
-                <div className={"headerText"}><div className={"backIcon"}><FontAwesomeIcon icon={faHome} onClick={navigateHome} /></div>
-                    <h1>Binary Search</h1></div>
-                    <h2>Time complexity: O(logN)</h2>
-                    <div className={"code"}>
-                        <img src={java} alt={"java"} height={"30px"} onClick={openJavaCode} />
+                <div className={"headerText"}><div className={"backIcon"}><FontAwesomeIcon icon={faHome} onClick={navigateHome} /></div> <h1>Sliding Window</h1></div>
+                <h2>Time complexity: O(n)</h2>
+                <div className={"code"}>
+                    <img src={java} alt={"java"} height={"30px"} onClick={openJavaCode} />
                     <JavaCodeModal show={showJavaCode} onHide={closeJavaCode}/>
                     <img src={javascript} alt={"javascript"} height={"30px"} onClick={openJavascriptCode}/>
                     <JavascriptCodeModal show={showJavascriptCode} onHide={closeJavascriptCode}/>
@@ -134,32 +133,32 @@ function BinarySearch() {
 
             <div className={"input"}>
                 <div id={"binaryBox"}>
-                <div className={"label"}>
-                    Range
-                </div>
-                <div className={"inputButtonDiv"}>
-                    <div className={"sampleInput"}>
-                        <button className={"inputButton"}
-                                onClick={() => setInputArray(Array.from({length: 50}, (_, i) => i + 1).join(','))}>50
-                        </button>
+                    <div className={"label"}>
+                        Array
                     </div>
-                    <div className={"sampleInput"}>
-                        <button className={"inputButton"}
-                                onClick={() => setInputArray(Array.from({length: 150}, (_, i) => i + 1).join(','))}>150
-                        </button>
+                    <div className={"inputButtonDiv"}>
+                        <div className={"sampleInput"}>
+                            <button className={"inputButton"}
+                                    onClick={() => setInputArray(Array.from({length: 50}, () => Math.floor(Math.random() * 401) - 150).join(','))}>50
+                            </button>
+                        </div>
+                        <div className={"sampleInput"}>
+                            <button className={"inputButton"}
+                                    onClick={() => setInputArray(Array.from({length: 150}, () => Math.floor(Math.random() * 401) - 150).join(','))}>150
+                            </button>
+                        </div>
+                        <div className={"sampleInput"}>
+                            <input type={"number"} className={"inputBox customBinaryArray"}
+                                   onBlur={(e) => setInputArray(Array.from({length: Number(e.target.value)}, () => Math.floor(Math.random() * 401) - 150).join(','))}
+                                   onKeyDown={(e) => {
+                                       if (e.key === 'Enter') {
+                                           e.preventDefault();
+                                           setInputArray(Array.from({length: Number(e.target.value)}, () => Math.floor(Math.random() * 401) - 150).join(','));
+                                       }
+                                   }} placeholder={"250"}>
+                            </input>
+                        </div>
                     </div>
-                    <div className={"sampleInput"}>
-                        <input type={"number"} className={"inputBox customBinaryArray"}
-                               onBlur={(e) => setInputArray(Array.from({length: Number(e.target.value)}, (_, i) => i + 1).join(','))}
-                               onKeyDown={(e) => {
-                                   if (e.key === 'Enter') {
-                                       e.preventDefault();
-                                       setInputArray(Array.from({length: Number(e.target.value)}, (_, i) => i + 1).join(','));
-                                   }
-                               }} placeholder={"250"}>
-                        </input>
-                    </div>
-                </div>
                     <div className={"sampleInput targetButtonDiv"}>
                         <input id={"binaryArray"} className={"inputBox"} type="text" value={inputArray}
                                onChange={handleInputArrayChange} placeholder={"1,2,3,4,5,6"}/>
@@ -167,17 +166,17 @@ function BinarySearch() {
                 </div>
                 <div id={"binaryBox"}>
                     <div className={"labelTarget"}>
-                    Target
-                </div>
+                        Window
+                    </div>
                     <div className={"inputButtonDiv targetButtonDiv"}>
                         <div className={"sampleInput"}>
                             <button className={"inputButton targetButton"}
-                                    onClick={() => setInputTarget(inputArray.split(',')[0])}>Start
+                                    onClick={() => setInputTarget(Math.floor(inputArray.split(",").length * 0.075))}>7.5%
                             </button>
                         </div>
                         <div className={"sampleInput"}>
                             <button className={"inputButton targetButton"}
-                                    onClick={() => setInputTarget(inputArray.split(',').pop())}>End
+                                    onClick={() => setInputTarget(Math.floor(inputArray.split(",").length * 0.15))}>15%
                             </button>
                         </div>
                     </div>
@@ -185,24 +184,24 @@ function BinarySearch() {
                         <input className={"inputBox"} id={"binaryNumber"} type={"number"} value={inputTarget}
                                onChange={handleInputTargetChange} placeholder={"3"}/>
                         <button id={"binarySubmit"} onClick={handleSubmit}><FontAwesomeIcon icon={faSearch}/></button>
+                    </div>
                 </div>
             </div>
-            </div>
+            {resultsText === '' && <>Current <b>sum</b> of range (<b>{currentStart}, {currentEnd}</b>) is <b>{currentSum}</b><br/></>}
+            Max value found at: (<b>{maxStart}, {maxEnd}</b>)
             <br/>
-            Current amount of loops: <b>{currentCount}</b>
-            <br/>
-            <b>Result:</b> {resultsText} <b>{resultNumber}</b>
+            {resultsText} <b>{resultNumber}</b>
             <div id={"legend"}>
-                <div className={"legendBoxes"}>Range: <div className={"box within legendBox"}></div></div>
-                <div className={"legendBoxes"}>Mid: <div className={"box mid legendBox"}> </div> </div>
+                <div className={"legendBoxes"}>Window: <div className={"box within legendBox"}></div></div>
+                <div className={"legendBoxes"}>Max: <div className={"box mid legendBox"}> </div> </div>
             </div>
             <div id={"boxes"}>
                 {boxesArray.map((box, index) =>
-                    <div key={box.id} className={`box ${index === currentStart ? 'start' : ''} ${index === currentMid ? 'mid' : ''} ${index === currentEnd ? 'end' : ''} ${index < currentEnd && index > currentStart? 'within' : ''}`}>{box.value}</div>
+                    <div key={box.id} className={`box ${index <= currentEnd && index >= currentStart? 'within' : ''} ${index <= maxEnd && index >= maxStart ? 'max' : ''}`}>{box.value}</div>
                 )}
             </div>
         </>
     );
 }
 
-export default BinarySearch
+export default SlidingWindow

@@ -32,7 +32,8 @@ function Home() {
 
     return(
         <>
-            <h1>Algorithms visualised</h1>
+            <h1>Algorithms
+                <br />visualised</h1>
             <div className={"filter"}>
                 <Dropdown>
                 <Dropdown.Toggle
@@ -49,7 +50,7 @@ function Home() {
                             <Form.Check
                                 id={`filter-item`}
                                 checked={filters.length === possibleFilters.length}
-                                onChange={(event) => {
+                                onChange={() => {
                                     if (filters.length === possibleFilters.length) {
                                         setFilters([]);
                                     } else {
