@@ -1,8 +1,8 @@
-import {Dropdown, Form, FormGroup} from "react-bootstrap";
+import {Dropdown, Form, FormGroup, OverlayTrigger, Tooltip} from "react-bootstrap";
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faGear} from "@fortawesome/free-solid-svg-icons";
+import {faClock, faGear, faThumbtack} from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
     const navigate = useNavigate();
@@ -15,11 +15,12 @@ function Home() {
     }, [filters]);
 
     const algorithms = [
-        { name: 'Binary Search', route: '/binary-search', type: ['search', 'divide and conquer'] },
-        { name: 'Sliding Window', route: '/sliding-window', type: ['window', 'array'] },
+        { name: 'Binary Search', route: '/binary-search', type: ['search', 'divide and conquer'], time: 'logN'},
+        { name: 'Sliding Window', route: '/sliding-window', type: ['window', 'array'], time: 'n'},
     ];
 
-    const possibleFilters = ['search', 'window', 'divide and conquer', 'array'];
+    const possibleFilters = ['search', 'window', 'divide and conquer', 'array' ];
+    const timeComplexityFilters = ['logN', 'n', 'nlogN', 'n²', 'n³', '2ⁿ', 'n!'];
 
     const handleFilterChange = (filter, event) => {
         event.stopPropagation();
@@ -70,6 +71,18 @@ function Home() {
                             />
                         </Dropdown.Item>
                     ))}
+                        <Dropdown.Divider />
+                        {timeComplexityFilters.map(filter => (
+                            <Dropdown.Item as="checkbox" className={"filter-item"} key={filter} onClick={(e) => e.stopPropagation()}>
+                                <Form.Check
+                                    id={`filter-item`}
+                                    checked={filters.includes(filter)}
+                                    onChange={(event) => handleFilterChange(filter, event)}
+                                    label={`O(${filter})`}
+                                />
+                            </Dropdown.Item>
+                        ))}
+
                     </FormGroup>
                     </Dropdown.Menu>
                 </Dropdown>
@@ -81,13 +94,47 @@ function Home() {
                 />
             </div>
             <div className={"algorithm-list"}>
-                {algorithms.filter(algorithm => (filters.length === 0 || algorithm.type.some(type => filters.includes(type))) && algorithm.name.toLowerCase().includes(searchTerm.toLowerCase())).map(algorithm => (
+                {algorithms.filter(algorithm =>
+                    (filters.length === 0 ||
+                        algorithm.type.some(type => filters.includes(type)) ||
+                        filters.includes(algorithm.time)) &&
+                    algorithm.name.toLowerCase().includes(searchTerm.toLowerCase())
+                ).map(algorithm => (
                     <div
                         key={algorithm.name}
                         className={"algorithm"}
                         onClick={() => navigate(algorithm.route)}
                     >
-                        {algorithm.name}
+                    <OverlayTrigger
+                        placement="top"
+                        overlay={
+                            <Tooltip
+                                id={`tooltip-top`}>
+                                <b>Tags:</b> {algorithm.type.join(', ')}
+                            </Tooltip>
+                        }
+                    >
+                        <div className={"algorithmIcon"}>
+                            <FontAwesomeIcon icon={faThumbtack} />
+                        </div>
+                    </OverlayTrigger>
+                        <div className={"algorithmName"}>
+                            {algorithm.name}
+                        </div>
+                        <OverlayTrigger
+                            placement="top"
+                                        overlay={
+                                            <Tooltip
+                                                id={`tooltip-top`}>
+                                                <b>Time complexity:</b> O({algorithm.time})
+                                            </Tooltip>
+                                        }
+                            >
+
+                        <div className={"algorithmTime"}>
+                            <FontAwesomeIcon icon={faClock} />
+                        </div>
+                        </OverlayTrigger>
                     </div>
                 ))}
             </div>

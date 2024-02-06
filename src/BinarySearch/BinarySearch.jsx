@@ -133,7 +133,7 @@ function BinarySearch() {
             </div>
 
             <div className={"input"}>
-                <div id={"binaryBox"}>
+                <div id={"inputBoxes"}>
                 <div className={"label"}>
                     Range
                 </div>
@@ -149,7 +149,7 @@ function BinarySearch() {
                         </button>
                     </div>
                     <div className={"sampleInput"}>
-                        <input type={"number"} className={"inputBox customBinaryArray"}
+                        <input type={"number"} className={"inputBox customInputArray"}
                                onBlur={(e) => setInputArray(Array.from({length: Number(e.target.value)}, (_, i) => i + 1).join(','))}
                                onKeyDown={(e) => {
                                    if (e.key === 'Enter') {
@@ -161,11 +161,11 @@ function BinarySearch() {
                     </div>
                 </div>
                     <div className={"sampleInput targetButtonDiv"}>
-                        <input id={"binaryArray"} className={"inputBox"} type="text" value={inputArray}
+                        <input id={"inputArray"} className={"inputBox"} type="text" value={inputArray}
                                onChange={handleInputArrayChange} placeholder={"1,2,3,4,5,6"}/>
                     </div>
                 </div>
-                <div id={"binaryBox"}>
+                <div id={"inputBoxes"}>
                     <div className={"labelTarget"}>
                     Target
                 </div>
@@ -181,10 +181,10 @@ function BinarySearch() {
                             </button>
                         </div>
                     </div>
-                    <div className={"sampleInput binarySubmit targetButtonDiv"}>
-                        <input className={"inputBox"} id={"binaryNumber"} type={"number"} value={inputTarget}
+                    <div className={"sampleInput inputSubmit targetButtonDiv"}>
+                        <input className={"inputBox"} id={"inputNumber"} type={"number"} value={inputTarget}
                                onChange={handleInputTargetChange} placeholder={"3"}/>
-                        <button id={"binarySubmit"} onClick={handleSubmit}><FontAwesomeIcon icon={faSearch}/></button>
+                        <button id={"inputStart"} onClick={handleSubmit}><FontAwesomeIcon icon={faSearch}/></button>
                 </div>
             </div>
             </div>

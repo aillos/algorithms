@@ -200,7 +200,7 @@ input:focus-visible {
   font-weight: normal;
 }
 
-#binarySubmit{
+#inputStart{
   border-radius:50%;
   height:50px;
   width:50px;
@@ -209,7 +209,7 @@ input:focus-visible {
   align-items: center;
 }
 
-#binaryNumber{
+#inputNumber{
   width:135px;
   height:50px;
 }
@@ -219,7 +219,7 @@ input:focus-visible {
   border-radius:30px;
 }
 
-.binarySubmit{
+.inputSubmit{
   display: flex;
   justify-content: center;
 }
@@ -230,7 +230,7 @@ input:focus-visible {
   height:30px;
 }
 
-#binaryArray{
+#inputArray{
   margin: auto;
   display: flex;
   justify-content: center;
@@ -252,11 +252,11 @@ input:focus-visible {
   margin: auto auto 10px;
 }
 
-#binaryBox{
+#inputBoxes{
   margin:10px;
 }
 
-.customBinaryArray{
+.customInputArray{
   width:90px;
   height:50px;
   text-align: center;
@@ -407,4 +407,24 @@ input:focus-visible {
 
 .backIcon:hover{
   border: 1px solid #646cff;
+}
+
+.algorithmTime{
+  margin-left:auto;
+  margin-right:10px;
+  font-size:18px;
+}
+
+.algorithmIcon{
+  font-size:18px;
+  margin-right:auto;
+  margin-left:10px;
+}
+
+#tooltip-top > .tooltip-inner{
+  background-color: #242424;
+}
+
+#tooltip-top > .tooltip-arrow::before{
+  border-top-color: #242424;
 }
