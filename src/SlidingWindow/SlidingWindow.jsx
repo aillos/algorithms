@@ -8,11 +8,8 @@ import javascript from 'programming-languages-logos/src/javascript/javascript.sv
 import csharp from 'programming-languages-logos/src/csharp/csharp.svg'
 import cpp from 'programming-languages-logos/src/cpp/cpp.svg'
 import {SlidingWindowFunction} from "./SlidingWindowFunction.jsx";
-import JavascriptCodeModal from "./JavascriptCodeModal.jsx";
-import JavaCodeModal from "./JavaCodeModal.jsx";
-import PythonCodeModal from "./PythonCodeModal.jsx";
-import CSharpCodeModal from "./CSharpCodeModal.jsx";
-import CppCodeModal from "./CppCodeModal.jsx";
+import CodeModal from "../helper/CodeModal.jsx";
+import {cppCode, cSharpCode, javaCode, javascriptCode, pythonCode} from "./SlidingWindowCode.jsx";
 
 function SlidingWindow() {
     const [inputArray, setInputArray] = useState('');
@@ -26,54 +23,54 @@ function SlidingWindow() {
     const [currentSum, setCurrentSum] = useState(null);
     const [resultsText, setResultsText] = useState('');
     const [resultNumber, setResultNumber] = useState(null);
-    const [showJavascriptCode, setShowJavascriptCode] = useState(false);
+    const [showCppCode, setShowCppCode] = useState(false);
     const [showJavaCode, setShowJavaCode] = useState(false);
+    const [showJavascriptCode, setShowJavascriptCode] = useState(false);
     const [showPythonCode, setShowPythonCode] = useState(false);
     const [showCsharpCode, setShowCsharpCode] = useState(false);
-    const [showCppCode, setShowCppCode] = useState(false);
 
     const navigateHome = () => {
         window.location.href = '/';
     }
 
-    const closeCppCode = () => {
-        setShowCppCode(false);
+    const closeCode = (language) => {
+        switch(language) {
+            case 'java':
+                setShowJavaCode(false);
+                break;
+            case 'javascript':
+                setShowJavascriptCode(false);
+                break;
+            case 'python':
+                setShowPythonCode(false);
+                break;
+            case 'csharp':
+                setShowCsharpCode(false);
+                break;
+            case 'cpp':
+                setShowCppCode(false);
+                break;
+        }
     }
 
-    const openCppCode = () => {
-        setShowCppCode(true);
-    }
-
-    const closeJavascriptCode = () => {
-        setShowJavascriptCode(false);
-    }
-
-    const openJavascriptCode = () => {
-        setShowJavascriptCode(true);
-    }
-
-    const closeJavaCode = () => {
-        setShowJavaCode(false);
-    }
-
-    const openJavaCode = () => {
-        setShowJavaCode(true);
-    }
-
-    const closePythonCode = () => {
-        setShowPythonCode(false);
-    }
-
-    const openPythonCode = () => {
-        setShowPythonCode(true);
-    }
-
-    const closeCsharpCode = () => {
-        setShowCsharpCode(false);
-    }
-
-    const openCsharpCode = () => {
-        setShowCsharpCode(true);
+    const openCode = (language) => {
+        switch (language) {
+            case 'java':
+                setShowJavaCode(true);
+                break;
+            case 'javascript':
+                setShowJavascriptCode(true);
+                break;
+            case 'python':
+                setShowPythonCode(true);
+                break;
+            case 'csharp':
+                setShowCsharpCode(true);
+                break;
+            case 'cpp':
+                setShowCppCode(true);
+                break;
+        }
     }
 
 
@@ -114,20 +111,20 @@ function SlidingWindow() {
     return (
         <>
             <div className={"header"}>
-                <div className={"headerText"}><div className={"backIcon"}><FontAwesomeIcon icon={faHome} onClick={navigateHome} /></div> <h1>Sliding Window</h1></div>
+                <div className={"headerText"}><div className={"backIcon"}><FontAwesomeIcon icon={faHome} onClick={navigateHome} /></div>
+                    <h1>Sliding Window</h1></div>
                 <h2>Time complexity: O(n)</h2>
                 <div className={"code"}>
-                    <img src={java} alt={"java"} height={"30px"} onClick={openJavaCode} />
-                    <JavaCodeModal show={showJavaCode} onHide={closeJavaCode}/>
-                    <img src={javascript} alt={"javascript"} height={"30px"} onClick={openJavascriptCode}/>
-                    <JavascriptCodeModal show={showJavascriptCode} onHide={closeJavascriptCode}/>
-                    <img src={python} alt={"python"} height={"30px"} onClick={openPythonCode}/>
-                    <PythonCodeModal show={showPythonCode} onHide={closePythonCode}/>
-                    <img src={csharp} alt={"csharp"} height={"30px"} onClick={openCsharpCode}/>
-                    <CSharpCodeModal show={showCsharpCode} onHide={closeCsharpCode}/>
-                    <img src={cpp} alt={"cplusplus"} height={"30px"} onClick={openCppCode}/>
-                    <CppCodeModal show={showCppCode} onHide={closeCppCode}/>
-
+                    <img src={java} alt={"java"} height={"30px"} onClick={() => openCode("java")} />
+                    <CodeModal show={showJavaCode} onHide={() => closeCode("java")} code={javaCode} language={"Java"}/>
+                    <img src={javascript} alt={"javascript"} height={"30px"} onClick={() => openCode("javascript")}/>
+                    <CodeModal show={showJavascriptCode} onHide={() => closeCode("javascript")} code={javascriptCode} language={"Javascript"}/>
+                    <img src={python} alt={"python"} height={"30px"} onClick={() => openCode("python")}/>
+                    <CodeModal show={showPythonCode} onHide={() => closeCode("python")} code={pythonCode} language={"Python"}/>
+                    <img src={csharp} alt={"csharp"} height={"30px"} onClick={() => openCode("csharp")}/>
+                    <CodeModal show={showCsharpCode} onHide={() => closeCode("csharp")} code={cSharpCode} language={"C#"}/>
+                    <img src={cpp} alt={"cplusplus"} height={"30px"} onClick={() => openCode("cpp")}/>
+                    <CodeModal show={showCppCode} onHide={() => closeCode("cpp")} code={cppCode} language={"C++"}/>
                 </div>
             </div>
 
