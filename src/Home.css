@@ -1,0 +1,140 @@
+.algorithm{
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:450px;
+    height:50px;
+    background-color: #383838;
+    border-radius:25px;
+    border: 1px solid transparent;
+    font-size: 20px;
+}
+
+.algorithm:hover{
+    cursor: pointer;
+    border-color: #646cff;
+}
+
+#search-bar{
+    margin-left:auto;
+    text-align: center;
+    height:40px;
+    width:120px;
+    border-radius: 30px;
+}
+
+.filter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px auto;
+    width: 450px;
+}
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+#dropdown-filters{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:40px;
+    height:40px;
+    font-size:20px;
+    background-color: #383838;
+    border-radius: 30px;
+    border-color: #383838;
+}
+
+#dropdown-filters:hover{
+    cursor: pointer;
+    border-color: #646cff;
+}
+
+#menu-filters{
+    background-color: #242424;
+    width:230px
+}
+
+.filter-item{
+    color: #f9f9f9;
+    border: 1px solid transparent;
+    background-color: #383838;
+    border-radius: 25px;
+    width:200px;
+    margin: 5px auto;
+}
+
+
+.filter-item:hover{
+    border: 1px solid #646cff;
+    color: #f9f9f9;
+    background-color: #383838;
+    border-radius: 25px;
+}
+
+#filter-item {
+    background-color: #242424;
+    border: 1px solid transparent;
+    width: 20px;
+    height: 20px;
+    color: #f9f9f9;
+    border-radius:50%;
+    margin-left:-30px;
+}
+
+#filter-item:focus-visible{
+    outline: none;
+    border:none;
+}
+
+.algorithmTime{
+    margin-left:auto;
+    margin-right:20px;
+    font-size:22px;
+}
+
+.algorithmIcon{
+    font-size:22px;
+    margin-right:auto;
+    margin-left:20px;
+}
+
+#tooltip-top > .tooltip-inner{
+    background-color: #242424;
+}
+
+#tooltip-top > .tooltip-arrow::before{
+    border-top-color: #242424;
+}
+
+.main-menu > h2{
+    font-size:16px;
+    font-weight:normal;
+}
+
+.main-menu > h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+@media (max-width: 768px) {
+    .algorithm{
+        width: 300px;
+    }
+    .filter{
+        width: 300px;
+    }
+    #search-bar{
+        width: 100px;
+    }
+    .filter-item{
+        width: 150px;
+    }
+    #menu-filters{
+        width: 150px;
+    }
+}

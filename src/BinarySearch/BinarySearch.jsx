@@ -193,7 +193,7 @@ function BinarySearch() {
             </div>
             <div id={"boxes"}>
                 {boxesArray.map((box, index) =>
-                    <div key={box.id} className={`box ${index === currentStart ? 'start' : ''} ${index === currentMid ? 'mid' : ''} ${index === currentEnd ? 'end' : ''} ${index < currentEnd && index > currentStart? 'within' : ''}`}>{box.value}</div>
+                    <div key={box.id} className={`box  ${index === currentMid ? 'mid' : ''} ${index <= currentEnd && index >= currentStart? 'within' : ''}`}>{box.value}</div>
                 )}
             </div>
         </>

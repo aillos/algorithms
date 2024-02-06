@@ -17,9 +17,10 @@ function Home() {
     const algorithms = [
         { name: 'Binary Search', route: '/binary-search', type: ['search', 'divide and conquer'], time: 'logN'},
         { name: 'Sliding Window', route: '/sliding-window', type: ['window', 'array'], time: 'n'},
+        { name: 'Bubble Sort', route: '/bubble-sort', type: ['sorting', 'array'], time: 'n²'},
     ];
 
-    const possibleFilters = ['search', 'window', 'divide and conquer', 'array' ];
+    const possibleFilters = ['search', 'window', 'divide and conquer', 'array', 'sorting' ];
     const timeComplexityFilters = ['logN', 'n', 'nlogN', 'n²', 'n³', '2ⁿ', 'n!'];
 
     const handleFilterChange = (filter, event) => {
@@ -33,8 +34,10 @@ function Home() {
 
     return(
         <>
-            <h1>Algorithms
-                <br />visualised</h1>
+            <div className={"main-menu"}>
+                <h1>Algorithms visualised</h1>
+                <h2>by Andreas Sandvik Solli</h2>
+            </div>
             <div className={"filter"}>
                 <Dropdown>
                 <Dropdown.Toggle

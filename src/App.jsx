@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import BinarySearch from "./BinarySearch/BinarySearch.jsx";
 import Home from "./Home.jsx";
 import SlidingWindow from "./SlidingWindow/SlidingWindow.jsx";
+import BubbleSort from "./BubbleSort/BubbleSort.jsx";
 
 function App() {
     const router = createBrowserRouter([
@@ -17,6 +18,10 @@ function App() {
         {
             path: "/sliding-window",
             element: <SlidingWindow />,
+        },
+        {
+            path: "/bubble-sort",
+            element: <BubbleSort />,
         },
     ]);
 

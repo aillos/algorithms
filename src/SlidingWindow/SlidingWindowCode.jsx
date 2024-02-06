@@ -1,13 +1,11 @@
 export const cSharpCode =
     `
-int SlidingWindow(int[] arr, int x)
-{
+int SlidingWindow(int[] arr, int x) {
     int maxSum = 0;
     for (int i = 0; i < x; i++)
         maxSum += arr[i];
     int windowSum = maxSum;
-    for (int i = x; i < arr.Length; i++)
-    {
+    for (int i = x; i < arr.Length; i++) {
         windowSum += arr[i] - arr[i - x];
         maxSum = Math.Max(maxSum, windowSum);
     }
@@ -17,8 +15,7 @@ int SlidingWindow(int[] arr, int x)
 
 export const javaCode =
     `
-int slidingWindow(int arr[], int x)
-    {
+int slidingWindow(int arr[], int x) {
         int maxSum = 0;
         for (int i = 0; i < x; i++)
             maxSum += arr[i];
@@ -35,14 +32,12 @@ int slidingWindow(int arr[], int x)
 
 export const cppCode =
     `
-int slidingWindow(int arr[], int x)
-{
+int slidingWindow(int arr[], int x) {
     int maxSum = 0;
     for (int i = 0; i < x; i++)
         maxSum += arr[i];
     int windowSum = maxSum;
-    for (int i = x; i < arr.length; i++)
-    {
+    for (int i = x; i < arr.length; i++) {
         windowSum += arr[i] - arr[i - x];
         maxSum = max(maxSum, windowSum);
     }

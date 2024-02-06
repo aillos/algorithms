@@ -1,0 +1,309 @@
+#boxes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    margin-top:50px;
+}
+
+#bars{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    height: 250px;
+    width: 100%;
+    justify-content: space-around;
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+.bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bar-value {
+    margin-top: 5px;
+}
+
+.bar{
+    background-color:white;
+    width:20px;
+    color:black;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:5px;
+}
+
+.box{
+    background-color:white;
+    width:50px;
+    height:50px;
+    color:black;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:10px;
+}
+
+.box.mid{
+    background-color:mediumseagreen !important;
+}
+
+.box.within{
+    background-color:royalblue;
+}
+
+.input{
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+input{
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #2f2f2f;
+    cursor: pointer;
+    margin:5px;
+}
+
+input:focus,
+input:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+#legend{
+    display: flex;
+    justify-content: center;
+}
+.legendBoxes{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size:20px;
+}
+
+.legendBox{
+    height:25px !important;
+    width: 25px !important;
+    margin-left: 10px;
+    border-radius: 50%;
+}
+
+.inputButton{
+    border-radius: 50%;
+    width:50px;
+    height:50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputButtonDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom:10px;
+    background-color: #383838;
+    height: 60px;
+    border-radius: 30px;
+    width: 220px;
+}
+
+.targetButtonDiv{
+    width:200px;
+    margin-bottom:5px;
+}
+
+.arrayButtonDiv{
+    display: flex;
+    justify-content: center;
+    width:270px;
+    margin-bottom:5px;
+}
+.sampleInput.sorting{
+    margin-left:-5px;
+}
+
+.sampleInput.testSort{
+    margin-left:-5px;
+    margin-right:-5px;
+}
+.inputArrayDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom:10px;
+    background-color: #383838;
+    height: 60px;
+    border-radius: 30px;
+    width: 270px;
+}
+
+.header{
+    margin-bottom:30px;
+}
+
+.header > h2{
+    font-weight: normal;
+    margin-bottom:15px;
+}
+
+.code{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 35px;
+    background-color: #383838;
+    width: 250px;
+    height:40px;
+
+}
+
+.header > h3 {
+    font-weight: normal;
+}
+
+#inputStart{
+    border-radius:50%;
+    height:50px;
+    width:50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#inputNumber{
+    width:135px;
+    height:50px;
+}
+
+.targetButton{
+    width: 90px;
+    border-radius:30px;
+}
+
+.inputSubmit{
+    display: flex;
+    justify-content: center;
+}
+
+.inputBox{
+    border-radius:30px;
+    text-align: center;
+    height:30px;
+}
+
+#inputArray{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    width:220px;
+    height: 50px;
+}
+
+.label{
+    width: 200px;
+    text-align: left;
+    margin: auto auto 10px;
+    font-size: 18px;
+}
+
+.labelTarget{
+    font-size: 18px;
+    width: 180px;
+    text-align: left;
+    margin: auto auto 10px;
+}
+
+#inputBoxes{
+    margin:10px;
+}
+
+.customInputArray{
+    width:90px;
+    height:50px;
+    text-align: center;
+
+}
+.code-modal{
+    background-color: #242424;
+    border-color: #1a1a1a;
+}
+
+.language-javascript, .language-java, .language-python, .language-csharp, .language-cpp{
+    background-color: #242424 !important;
+    border: 0 !important;
+}
+
+.code > img:hover{
+    cursor: pointer;
+}
+
+.modal {
+    --bs-modal-border-radius: 30px;
+}
+
+.form-check-label{
+    font-size: 16px;
+}
+
+.headerText{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.backIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left:-60px;
+    margin-right: 10px;
+    font-size:24px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background-color: #1a1a1a;
+    width: 50px;
+    height: 50px;
+}
+
+.backIcon:hover{
+    border: 1px solid #646cff;
+}
+
+@media (max-width: 768px) {
+    .input{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1{
+        font-size:30px;
+    }
+
+    .backIcon{
+        height:30px;
+        width:30px;
+        font-size: 16px;
+    }
+}

@@ -194,7 +194,7 @@ function SlidingWindow() {
             </div>
             <div id={"boxes"}>
                 {boxesArray.map((box, index) =>
-                    <div key={box.id} className={`box ${index <= currentEnd && index >= currentStart? 'within' : ''} ${index <= maxEnd && index >= maxStart ? 'max' : ''}`}>{box.value}</div>
+                    <div key={box.id} className={`box ${index <= currentEnd && index >= currentStart? 'within' : ''} ${index <= maxEnd && index >= maxStart ? 'mid' : ''}`}>{box.value}</div>
                 )}
             </div>
         </>
