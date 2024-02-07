@@ -18,6 +18,7 @@ function Home() {
         { name: 'Binary Search', route: '/binary-search', type: ['search', 'divide and conquer'], time: 'logN'},
         { name: 'Sliding Window', route: '/sliding-window', type: ['window', 'array'], time: 'n'},
         { name: 'Bubble Sort', route: '/bubble-sort', type: ['sorting', 'array'], time: 'n²'},
+        { name: 'Quick Sort', route: '/quick-sort', type: ['sorting', 'divide and conquer'], time: 'nlogN'},
     ];
 
     const possibleFilters = ['search', 'window', 'divide and conquer', 'array', 'sorting' ];

@@ -4,6 +4,7 @@ import BinarySearch from "./BinarySearch/BinarySearch.jsx";
 import Home from "./Home.jsx";
 import SlidingWindow from "./SlidingWindow/SlidingWindow.jsx";
 import BubbleSort from "./BubbleSort/BubbleSort.jsx";
+import QuickSort from "./QuickSort/QuickSort.jsx";
 
 function App() {
     const router = createBrowserRouter([
@@ -22,6 +23,10 @@ function App() {
         {
             path: "/bubble-sort",
             element: <BubbleSort />,
+        },
+        {
+            path: "/quick-sort",
+            element: <QuickSort />,
         },
     ]);
 

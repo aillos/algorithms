@@ -63,6 +63,14 @@ h1 {
     background-color:royalblue;
 }
 
+.bar.mid{
+    background-color:mediumseagreen !important;
+}
+
+.bar.within{
+    background-color:royalblue;
+}
+
 .input{
     font-weight: bold;
     display: flex;
