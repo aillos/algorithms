@@ -154,9 +154,9 @@ function BubbleSort() {
             </div>
             Correct numbers: <b>{currentCorrect} {arrayLength ? '/' : ''} {arrayLength}</b>
             <div id={"bars"} style={{gap:arrayLength > 20 ? '5px' : ''}}>
-                {boxesArray.map((bar) =>
+                {boxesArray.map((bar, index) =>
                     <div key={bar.id} className="bar-container">
-                        <div className={`bar`} style={{height: `${bar.value * 3}px`, width: arrayLength > 20 ? '10px' : '', borderRadius:arrayLength > 20 ? '3px' : '' }}></div>
+                        <div className={`bar ${index >= boxesArray.length-currentCorrect ? 'mid' : 'within'}`} style={{height: `${bar.value * 3}px`, width: arrayLength > 20 ? '10px' : '', borderRadius:arrayLength > 20 ? '3px' : '' }}></div>
                         <div className="bar-value">{bar.value}</div>
                     </div>
                 )}
